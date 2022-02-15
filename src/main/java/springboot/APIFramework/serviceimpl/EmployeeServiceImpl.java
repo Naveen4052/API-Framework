@@ -1,5 +1,6 @@
 package springboot.APIFramework.serviceimpl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import springboot.APIFramework.entities.Employee;
 import springboot.APIFramework.exception.ResourceNotFoundException;
@@ -11,7 +12,8 @@ import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-private EmployeeRepository employeeRepository;
+    @Autowired
+   private EmployeeRepository employeeRepository;
 
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         super();
@@ -20,11 +22,13 @@ private EmployeeRepository employeeRepository;
 
     @Override
     public Employee saveEmployee(Employee employee) {
+
         return employeeRepository.save(employee);
     }
 
     @Override
     public List<Employee> getAllEmployees() {
+
         return employeeRepository.findAll();
     }
 
