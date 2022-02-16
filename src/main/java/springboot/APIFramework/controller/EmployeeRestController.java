@@ -18,11 +18,11 @@ public class EmployeeRestController {
     }
 
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Employee>saveEmployee(@RequestBody Employee employee) {
         return new ResponseEntity<Employee>(employeeService.saveEmployee(employee),HttpStatus.CREATED);
     }
-    @GetMapping
+    @GetMapping("/view")
     public List<Employee> getallEmployees() {
         return employeeService.getAllEmployees();
     }
@@ -32,12 +32,18 @@ public class EmployeeRestController {
         return new ResponseEntity<Employee>(employeeService.getEmployeeById(employeeId),HttpStatus.OK);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable("id") long id, @RequestBody Employee employee) {
         return new ResponseEntity<Employee>(employeeService.updateEmployee(employee,id),HttpStatus.OK);
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id) {
         return new ResponseEntity<String>( "Employee deleted successfully!",HttpStatus.OK);
     }
+    @GetMapping(value = "/salary")
+    public List<Employee> getEmployeeBySalary() {
+        return employeeService.findAllOrderBySalaryAsc();
+    }
+
 }
+

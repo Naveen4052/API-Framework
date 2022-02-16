@@ -10,6 +10,7 @@ public interface EmployeeService {
     Employee getEmployeeById(long id);
     Employee updateEmployee(Employee employee,long id);
     void deleteEmployee(long id);
+    List<Employee> findAllOrderBySalaryAsc();
 
 
 }

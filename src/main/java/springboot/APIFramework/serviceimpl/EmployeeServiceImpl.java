@@ -53,4 +53,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee","Id",id));
         employeeRepository.deleteById(id);
     }
+
+    @Override
+    public List<Employee> findAllOrderBySalaryAsc() {
+        return employeeRepository.findAllOrderBySalaryAsc();
+    }
+
 }
