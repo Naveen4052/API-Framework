@@ -38,6 +38,7 @@ public class EmployeeRestController {
     }
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id) {
+        employeeService.deleteEmployee(id);
         return new ResponseEntity<String>( "Employee deleted successfully!",HttpStatus.OK);
     }
     @GetMapping(value = "/salary")
