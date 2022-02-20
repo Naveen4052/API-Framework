@@ -12,5 +12,6 @@ public interface EmployeeService {
     void deleteEmployee(long id);
     List<Employee> findAllOrderBySalaryAsc();
     public String getEmployeeSalary(long id);
+    List<Employee> findByDepartment(String department);
 
 }

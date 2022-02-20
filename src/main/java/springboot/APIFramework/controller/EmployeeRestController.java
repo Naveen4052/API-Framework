@@ -22,7 +22,7 @@ public class EmployeeRestController {
     public ResponseEntity<Employee>saveEmployee(@RequestBody Employee employee) {
         return new ResponseEntity<Employee>(employeeService.saveEmployee(employee),HttpStatus.CREATED);
     }
-    @GetMapping("/view")
+    @GetMapping
     public List<Employee> getallEmployees() {
         return employeeService.getAllEmployees();
     }
@@ -49,6 +49,10 @@ public class EmployeeRestController {
     @GetMapping(value = "/salary/{id}")
     public String getEmployeeSalary(@PathVariable long id) {
         return employeeService.getEmployeeSalary(id);
+    }
+    @GetMapping("/viewDept/{department}")
+    public List<Employee> findByDepartment(@PathVariable String department) {
+        return employeeService.findByDepartment(department);
     }
 
 }

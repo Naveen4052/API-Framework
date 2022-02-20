@@ -69,4 +69,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
+    @Override
+    public List<Employee> findByDepartment(String department) {
+        List<Employee> emp = employeeRepository.findByDepartment(department);
+        return emp;
+    }
+
 }
