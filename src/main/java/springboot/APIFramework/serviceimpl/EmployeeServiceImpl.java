@@ -58,5 +58,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> findAllOrderBySalaryAsc() {
         return employeeRepository.findAllOrderBySalaryAsc();
     }
+    @Override
+    public String getEmployeeSalary(long id)
+    {
+        if (!employeeRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Employee","ID",id);
+        } else {
+            Employee employee=employeeRepository.getById(id);
+            return "Salary of the Employee is: " + employee.getSalary();
+        }
+    }
 
 }

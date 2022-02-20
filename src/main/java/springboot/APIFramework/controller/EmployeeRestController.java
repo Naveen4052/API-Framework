@@ -46,5 +46,10 @@ public class EmployeeRestController {
         return employeeService.findAllOrderBySalaryAsc();
     }
 
+    @GetMapping(value = "/salary/{id}")
+    public String getEmployeeSalary(@PathVariable long id) {
+        return employeeService.getEmployeeSalary(id);
+    }
+
 }
 

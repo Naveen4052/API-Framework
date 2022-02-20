@@ -11,6 +11,6 @@ public interface EmployeeService {
     Employee updateEmployee(Employee employee,long id);
     void deleteEmployee(long id);
     List<Employee> findAllOrderBySalaryAsc();
-
+    public String getEmployeeSalary(long id);
 
 }
